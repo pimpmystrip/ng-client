@@ -1,0 +1,30 @@
+.led {
+    height: 25px;
+    width: 25px;
+    max-width: 25px;
+    border-radius: 99rem;
+    display: inline-block;
+    border: 2px solid blueviolet;
+}
+
+.strip {
+    height: 2px;
+    width: 50px;
+    display: inline-block;
+    background-color: #E0E0E0;
+}
+
+.strip-row {
+    margin: 3px;
+    border-radius: 99rem;
+    border: 1px solid blueviolet;
+    height: 36px;
+    padding-top: 4px;
+}
+
+.hexInput {
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #222222;
+}

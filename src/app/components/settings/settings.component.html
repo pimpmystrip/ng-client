@@ -1,0 +1,64 @@
+<div class="container" *ngIf="state">
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <mat-card-title>Settings</mat-card-title>
+
+        <mat-card-content>
+          <div class="row justify-content-center">
+            <span class="font-weight-bold" style="font-size: 16px">Brightness</span>
+          </div>
+          <div class="row">
+            <div class="col-2 text-right align-self-center">
+              <button mat-icon-button (click)="decreaseBrightness()">
+                <mat-icon>brightness_5</mat-icon>
+              </button>
+            </div>
+            <div class="col">
+              <mat-slider [(ngModel)]="brightness" (change)="setBrightness()" min="0" max="255" step="25.5" class="w-100"></mat-slider>
+            </div>
+            <div class="col-2 text-left align-self-center">
+              <button mat-icon-button (click)="increaseBrightness()">
+                <mat-icon>brightness_7</mat-icon>
+              </button>
+            </div>
+          </div>
+          <hr>
+
+          <div class="row justify-content-center">
+            <span class="font-weight-bold" style="font-size: 16px">Fade Colors</span>
+          </div>
+
+          <div class="row">
+            <div class="col text-center">
+              <div *ngFor="let faderColor of faderColors" class="colorBlock z-depth-1" [style.background-color]="faderColor.hex"></div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center" *ngIf="faderColors.length">
+            <button mat-button color="accent" (click)="popColor()">POP COLOR</button>
+          </div>
+
+          <div class="row">
+            <div class="col-2 align-self-center">Duration</div>
+            <div class="col">
+              <mat-slider [(ngModel)]="duration" class="w-100" min="1" max="5000" thumbLabel></mat-slider>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 align-self-center">Interval</div>
+            <div class="col">
+              <mat-slider [(ngModel)]="interval" class="w-100" min="1" max="360" thumbLabel></mat-slider>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <button mat-raised-button class="mt-3" color="accent" *ngIf="faderColors.length" (click)="applyFader()">APPLY</button>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
